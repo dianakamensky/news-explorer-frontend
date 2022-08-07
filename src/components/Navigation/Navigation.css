@@ -1,0 +1,36 @@
+.navbar {
+  display: flex;
+}
+
+.navbar_main {
+  color: #ffffff;
+}
+
+.navbar_saved {
+  color: #1a1b22;
+}
+
+.navbar__link {
+  color: #ffffff;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.navbar_main .navbar__link:first-child {
+  border-bottom: 3px solid;
+}
+
+.navbar_saved .navbar__link:nth-child(2) {
+  border-bottom: 3px solid;
+}
+
+.navbar__link_loggedIn::after {
+  content: " [ &rarr;";
+}
+
+.navbar__link:last-child {
+  border-radius: 50%;
+}
