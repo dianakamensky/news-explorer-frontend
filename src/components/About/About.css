@@ -1,0 +1,37 @@
+.about {
+  width: 93vw;
+  display: flex;
+  margin-right: 0;
+  column-gap: 4%;
+}
+
+.about__image {
+  width: 32%;
+  margin-left: 7%;
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.about__title {
+  margin-top: 131px;
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 115%;
+  color: #1a1b22;
+}
+
+.about__text {
+  width: 40%;
+}
+
+.about__paragraph {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 133%;
+  color: #1a1b22;
+  margin: 24px 0 0;
+}

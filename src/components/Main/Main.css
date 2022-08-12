@@ -1,0 +1,33 @@
+.main {
+}
+
+.main__search {
+  background-image: url("../../images/mainsearch.svg");
+  height: 576px;
+  width: 100%;
+}
+
+.main__header {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 60px;
+  line-height: 107%;
+  color: #ffffff;
+  margin: 0 29%;
+  padding-top: 160px;
+}
+
+.main__description {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 133%;
+  color: #ffffff;
+  margin: 32px 29% 88px;
+}
+
+.main__results {
+  background-color: #f5f6f7;
+}

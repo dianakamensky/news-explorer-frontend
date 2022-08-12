@@ -1,6 +1,8 @@
+import "./SearchForm.css";
+
 function SearchForm(onSubmit) {
   return (
-    <form className="search-form" name="search-form" onSubmit={onSubmit}>
+    <form className="search-form" name="search-form">
       <input
         className="search-form__input"
         type="text"
@@ -13,3 +15,5 @@ function SearchForm(onSubmit) {
     </form>
   );
 }
+
+export default SearchForm;

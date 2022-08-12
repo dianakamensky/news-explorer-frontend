@@ -1,0 +1,27 @@
+.header {
+  position: absolute;
+  display: flex;
+  color: #ffffff;
+  border-bottom: 1px solid white;
+  width: 85.5%;
+  height: 80px;
+  justify-content: space-between;
+  padding-left: 7.25%;
+  padding-right: 7.25%;
+}
+
+.header_saved-news {
+  color: black;
+}
+
+.header__logo {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  text-decoration: none;
+  margin-top: 30px;
+  margin-bottom: 26px;
+  color: inherit;
+}

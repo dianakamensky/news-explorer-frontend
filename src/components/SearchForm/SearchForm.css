@@ -1,13 +1,14 @@
 .search-form {
   display: flex;
   background-color: #ffffff;
-  border: 1px solid #d1d2d6;
   border-radius: 100px;
-  width: 608px;
-  height: 64px;
+  width: 607px;
+  height: 63px;
   font-family: "Roboto";
   font-style: normal;
   justify-content: space-between;
+  margin: 0 29%;
+  width: 42%;
 }
 
 .search-form__input {
@@ -16,6 +17,7 @@
   font-size: 16px;
   line-height: 22px;
   margin-left: 24px;
+  border: none;
 }
 
 .search-form__input::placeholder {
@@ -24,15 +26,16 @@
 
 .search-form__button {
   background: #2f71e5;
-  box-shadow: 0px 5px 15px rgba(14, 26, 57, 0.2);
   border-radius: 100px;
   width: 168px;
   height: 64px;
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
-  display: flex;
-  align-items: center;
   text-align: center;
   color: #ffffff;
+}
+
+.search-form__button:hover {
+  cursor: pointer;
 }

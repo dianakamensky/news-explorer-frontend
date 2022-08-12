@@ -1,3 +1,5 @@
+import "./Footer.css";
+
 function Footer(props) {
   return (
     <footer className="footer">
@@ -21,3 +23,5 @@ function Footer(props) {
     </footer>
   );
 }
+
+export default Footer;

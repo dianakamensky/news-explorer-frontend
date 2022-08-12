@@ -1,0 +1,71 @@
+.card {
+  border-radius: 16px;
+  width: 400px;
+  height: 576px;
+  position: relative;
+  background-color: #ffffff;
+}
+
+.card__image {
+  width: 100%;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.card__btn {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 40px;
+  height: 40px;
+  background: #ffffff;
+  border: none;
+  border-radius: 8px;
+}
+
+.card__text {
+  margin-left: 24px;
+  margin-right: 24px;
+}
+
+.card__date {
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 133%;
+  color: #b6bcbf;
+  margin: 20px 0 12px 0;
+}
+
+.card__title {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 109%;
+  color: #1a1b22;
+  margin: 0;
+}
+
+.card__description {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: #1a1b22;
+  margin: 16px 0px 18px 0;
+}
+
+.card__source {
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 125%;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: #b6bcbf;
+  margin: 0 0 24px 0;
+}

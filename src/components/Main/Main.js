@@ -1,8 +1,11 @@
 import React from "react";
-import { CurrentUserContext } from "../contexts/CurrentUserContext";
+import "./Main.css";
+import SearchForm from "../SearchForm/SearchForm";
+import About from "../About/About";
+import NewsCardList from "../NewsCardList/NewsCardList";
 
 function Main(props) {
-  const currentUser = React.useContext(CurrentUserContext);
+  const [searchResults, setSearchResults] = React.useState([]);
 
   return (
     <main className="main">
@@ -14,12 +17,14 @@ function Main(props) {
         </p>
         <SearchForm />
       </section>
-      <section className="main__results"></section>
-      <section className="main__author">
-        <img className="main__author-image"></img>
-        <h2 className="main__author-title">About the author</h2>
-        <p className="main__author-about"></p>
-      </section>
+      {searchResults.length > 0 && (
+        <section className="main__results">
+          <h2 className="main__results-title"></h2>
+          <NewsCardList cards={searchResults}></NewsCardList>
+          <button className="main__results-button">Show more</button>
+        </section>
+      )}
+      <About></About>
     </main>
   );
 }

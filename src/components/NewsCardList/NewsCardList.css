@@ -1,0 +1,6 @@
+.newscardlist {
+  display: flex;
+  column-gap: 16px;
+  flex-wrap: wrap;
+  padding: 62px 106px 62px 102px;
+}
