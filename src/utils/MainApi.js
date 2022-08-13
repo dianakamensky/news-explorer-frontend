@@ -34,7 +34,7 @@ class MainApi extends Api {
 }
 
 const mainApi = new MainApi({
-  baseUrl: "https://NewsExplorer.students.nomoredomainssbs.ru",
+  baseUrl: "https://api.NewsExplorer.students.nomoredomainssbs.ru",
   headers: {
     "Content-Type": "application/json",
   },
