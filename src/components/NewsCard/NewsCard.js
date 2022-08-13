@@ -29,12 +29,12 @@ function NewsCard({ content }) {
         <img className="card__btn-icon" src={icon()}></img>
       </button>
       <div className="card__text">
-      <p className="card__date">{content.publishedAt || content.date}</p>
-      <h3 className="card__title">{content.title}</h3>
-      <p className="card__description">{content.text || content.content}</p>
-      <p className="card__source">
-        {isOwn ? content.source : content.source.name}
-      </p>
+        <p className="card__date">{content.publishedAt || content.date}</p>
+        <h3 className="card__title">{content.title}</h3>
+        <p className="card__description">{content.text || content.content}</p>
+        <p className="card__source">
+          {isOwn ? content.source : content.source.name}
+        </p>
       </div>
     </article>
   );

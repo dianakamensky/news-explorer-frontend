@@ -3,9 +3,9 @@ import NewsCard from "../NewsCard/NewsCard";
 
 function NewsCardList({ items }) {
   return (
-    <div class="newscardlist">
+    <div className="newscardlist">
       {items.map((item) => (
-        <NewsCard content={item}></NewsCard>
+        <NewsCard content={item} key={item.url}></NewsCard>
       ))}
     </div>
   );
