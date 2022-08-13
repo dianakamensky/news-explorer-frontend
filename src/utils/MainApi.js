@@ -8,6 +8,17 @@ class MainApi extends Api {
   getUserInfo() {
     return this._requestJ("users/me", "GET");
   }
+
+  authorize(email, password) {
+    return this._requestJ("signin", "POST", { password, email }).then(
+      (data) => {
+        if (data.token) {
+          localStorage.setItem("jwt", data.token);
+        }
+        return data;
+      }
+    );
+  }
 }
 
 const mainApi = new MainApi({

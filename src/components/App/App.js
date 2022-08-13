@@ -14,7 +14,7 @@ import SignUpPopup from "../Popups/SignUpPopup";
 import InfoToolTip from "../Popups/InfoToolTip";
 
 function App({ props }) {
-  React.useEffect(initLoggedIn, []);
+   React.useEffect(initLoggedIn, []);
 
   const [currentUser, setCurrentUser] = React.useState({
     _id: "momo",
@@ -85,7 +85,7 @@ function App({ props }) {
       .getUserInfo()
       .then((res) => {
         if (res) {
-          setCurrentUser(res.data);
+          setCurrentUser(res);
         } else setCurrentUser({});
       })
       .catch((err) => {
@@ -94,13 +94,25 @@ function App({ props }) {
       });
   }
 
+  function signIn(email, password) {
+    mainApi
+      .authorize(email, password)
+      .then((data) => {
+        closeAllPopups();
+        initLoggedIn();
+      })
+      .catch((res) => window.alert(res.statusText));
+  }
+
+  function signOut() {
+    localStorage.removeItem("jwt");
+    setCurrentUser({});
+  }
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <SavedCardsContext.Provider value={savedCards}>
-        <Header
-          openPopup={setIsSignInPopupOpen}
-          logout={() => localStorage.removeItem("jwt")}
-        ></Header>
+        <Header openPopup={setIsSignInPopupOpen} logout={signOut}></Header>
         <Switch>
           <Route exact path="/">
             <Main deleteArticle={deleteArticle}></Main>
@@ -118,6 +130,7 @@ function App({ props }) {
       <SignInPopup
         isOpen={isSignInPopupOpen}
         onClose={closeAllPopups}
+        handleSubmit={signIn}
       ></SignInPopup>
       <SignUpPopup
         isOpen={isSignUpPopupOpen}

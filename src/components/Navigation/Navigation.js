@@ -4,7 +4,8 @@ import React from "react";
 import Api from "../../utils/api";
 
 function Navigation({ isMainPage, openPopup, logout }) {
-  const username = React.useContext(CurrentUserContext).name;
+  const currentUser = React.useContext(CurrentUserContext);
+  const username = currentUser.name;
 
   function handleClick(e) {
     e.preventDefault();

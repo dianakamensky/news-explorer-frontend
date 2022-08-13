@@ -76,14 +76,14 @@
 
 .popup__close-btn {
   position: absolute;
-  top: -28px;
-  right: -28px;
+  top: -40px;
+  right: -40px;
   padding: 0;
   background-color: rgba(0, 0, 0, 0);
   border: none;
   height: 40px;
   width: 40px;
-  background-image: url("");
+  background-image: url("../../images/x.svg");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -95,8 +95,7 @@
   font-size: 24px;
   line-height: 28px;
   color: #1a1b22;
-  margin-left: 8%;
-  margin-top: 34px;
+  margin: 34px 0 22px 8%;
 }
 
 .popup__submit-btn {
@@ -117,6 +116,7 @@
 .popup__submit-btn_active {
   background: #2f71e5;
   color: #ffffff;
+  cursor: pointer;
 }
 
 .popup__switch {
@@ -127,6 +127,7 @@
   line-height: 17px;
   text-align: center;
   color: #000000;
+  margin: 16px 0 28px 0;
 }
 
 .popup__switch-link {

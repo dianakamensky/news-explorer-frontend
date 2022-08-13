@@ -1,4 +1,5 @@
 import "./Popup.css";
+import React from "react";
 
 function PopupWithForm({
   isOpen,
@@ -6,11 +7,17 @@ function PopupWithForm({
   title,
   formName,
   onSubmit,
-  formRef,
   children,
-  isValid,
   submitText,
 }) {
+  const formRef = React.useRef();
+
+  const [isValid, setIsValid] = React.useState(false);
+
+  React.useEffect(() => {
+    setIsValid(formRef.current.checkValidity());
+  });
+
   return (
     <div className={`popup ${isOpen ? "popup_open" : ""}`}>
       <div className="popup__message">
