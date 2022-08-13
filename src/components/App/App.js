@@ -17,6 +17,33 @@ function App({ props }) {
 
   const [savedCards, setSavedCards] = React.useState([
     {
+      keyword: "Tesla",
+      source: "Notebookcheck.net",
+      author: "Daniel Zlatev",
+      owner: currentUser,
+      title:
+        "Tesla Model Y in China now comes with extra airbag protection safety that the US factory version lacks",
+      text: "The promised upgrade of Tesla's sprawling Gigafactory in Shanghai has brought the first tangible Model Y improvement in the form of a new airbag. The Chinese-made Model Ys are now shipping with a new driver seat airbag aimed to prevent driver-on-passenger inj…",
+      link: "https://www.notebookcheck.net/Tesla-Model-Y-in-China-now-comes-with-extra-airbag-protection-safety-that-the-US-factory-version-lacks.639802.0.html",
+      image:
+        "https://www.notebookcheck.net/fileadmin/Notebooks/News/_nc3/Model_Y_far_side_airbag.jpg",
+      date: "2022-08-09T13:46:00Z",
+    },
+    {
+      keyword: "Tesla",
+      source: "Notebookcheck.net",
+      author: "Daniel Zlatev",
+      owner: currentUser,
+      title:
+        "Tesla Model Y in China now comes with extra airbag protection safety that the US factory version lacks",
+      text: "The promised upgrade of Tesla's sprawling Gigafactory in Shanghai has brought the first tangible Model Y improvement in the form of a new airbag. The Chinese-made Model Ys are now shipping with a new driver seat airbag aimed to prevent driver-on-passenger inj…",
+      link: "https://www.notebookcheck.net/Tesla-Model-Y-in-China-now-comes-with-extra-airbag-protection-safety-that-the-US-factory-version-lacks.639802.0.html",
+      image:
+        "https://www.notebookcheck.net/fileadmin/Notebooks/News/_nc3/Model_Y_far_side_airbag.jpg",
+      date: "2022-08-09T13:46:00Z",
+    },
+    {
+      keyword: "Tesla",
       source: "Notebookcheck.net",
       author: "Daniel Zlatev",
       owner: currentUser,

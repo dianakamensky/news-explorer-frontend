@@ -1,6 +1,6 @@
 .card {
   border-radius: 16px;
-  width: 400px;
+  width: 30%;
   height: 576px;
   position: relative;
   background-color: #ffffff;
@@ -10,6 +10,21 @@
   width: 100%;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
+}
+
+.card__keyword {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  padding: 8px 22px;
+  background-color: #ffffff;
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  margin: 0;
+  border-radius: 8px;
 }
 
 .card__btn {
@@ -26,6 +41,12 @@
 .card__text {
   margin-left: 24px;
   margin-right: 24px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: #1a1b22;
 }
 
 .card__date {
@@ -33,7 +54,6 @@
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
-  line-height: 133%;
   color: #b6bcbf;
   margin: 20px 0 12px 0;
 }
@@ -46,6 +66,10 @@
   line-height: 109%;
   color: #1a1b22;
   margin: 0;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
 }
 
 .card__description {
@@ -56,6 +80,10 @@
   line-height: 22px;
   color: #1a1b22;
   margin: 16px 0px 18px 0;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
 }
 
 .card__source {
@@ -68,4 +96,90 @@
   text-transform: uppercase;
   color: #b6bcbf;
   margin: 0 0 24px 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@media all and (min-width: 767px) and (max-width: 1000px) {
+  .card {
+    width: 224px;
+    height: 420px;
+  }
+
+  .card__keyword {
+    padding: 8px 20px;
+    margin: 0;
+    top: 8px;
+    left: 8px;
+  }
+
+  .card__btn {
+    top: 8px;
+    right: 8px;
+  }
+
+  .card__text {
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-bottom: 16px;
+  }
+
+  .card__date {
+    margin: 20px 0 8px 0;
+  }
+
+  .card__description {
+    margin: 10px 0px 12px 0;
+  }
+
+  .card__source {
+    margin: 0 0 16px 0;
+  }
+}
+
+@media all and (min-width: 320px) and (max-width: 766px) {
+  .card {
+    width: 90%;
+    height: 440px;
+  }
+
+  .card__keyword {
+    padding: 8px 20px;
+    margin: 0;
+    top: 16px;
+    left: 16px;
+  }
+
+  .card__title {
+    -webkit-line-clamp: 2;
+  }
+
+  .card__btn {
+    top: 16px;
+    right: 16px;
+  }
+
+  .card__text {
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-bottom: 16px;
+  }
+
+  .card__date {
+    margin: 16px 0 8px 0;
+  }
+
+  .card__description {
+    margin: 10px 0px 12px 0;
+    -webkit-line-clamp: 3;
+  }
+
+  .card__source {
+    margin: 0 0 16px 0;
+  }
+
+  .card__image {
+    height: 45%;
+  }
 }

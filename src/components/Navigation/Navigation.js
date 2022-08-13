@@ -35,6 +35,7 @@ function Navigation({ isMainPage }) {
           href=""
         >{`${username || "Sign in"}`}</a>
       </div>
+      <button className="navbar__btn" type="button"></button>
     </nav>
   );
 }

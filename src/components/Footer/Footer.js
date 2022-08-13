@@ -1,4 +1,6 @@
 import "./Footer.css";
+import GitHub from "../../images/github.svg";
+import Facebook from "../../images/facebook.svg";
 
 function Footer(props) {
   return (
@@ -13,10 +15,10 @@ function Footer(props) {
         </a>
         <div className="footer__nav-icons">
           <a href="" className="footer__nav-link">
-            <img src=""></img>
+            <img src={GitHub}></img>
           </a>
           <a href="" className="footer__nav-link">
-            <img src=""></img>
+            <img src={Facebook}></img>
           </a>
         </div>
       </nav>

@@ -2,13 +2,10 @@
   display: flex;
   background-color: #ffffff;
   border-radius: 100px;
-  width: 607px;
   height: 63px;
   font-family: "Roboto";
   font-style: normal;
   justify-content: space-between;
-  margin: 0 29%;
-  width: 42%;
 }
 
 .search-form__input {
@@ -26,9 +23,10 @@
 
 .search-form__button {
   background: #2f71e5;
+  border: none;
   border-radius: 100px;
   width: 168px;
-  height: 64px;
+  height: 100%;
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
@@ -38,4 +36,32 @@
 
 .search-form__button:hover {
   cursor: pointer;
+}
+
+@media all and (min-width: 767px) and (max-width: 1000px) {
+  .search-form {
+    height: 56px;
+  }
+}
+
+@media all and (min-width: 320px) and (max-width: 766px) {
+  .search-form {
+    flex-direction: column;
+    height: 128px;
+    background: none;
+    width: 90%;
+  }
+
+  .search-form__input {
+    height: 56px;
+    border-radius: 100px;
+    margin: 0;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .search-form__button {
+    height: 56px;
+    width: 100%;
+  }
 }

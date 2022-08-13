@@ -15,7 +15,7 @@ function Header(props) {
       <Link className="header__logo" to="/">
         NewsExplorer
       </Link>
-      <Navigation></Navigation>
+      <Navigation isMainPage={location.pathname === "/"}></Navigation>
     </header>
   );
 }
