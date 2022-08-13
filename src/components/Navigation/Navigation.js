@@ -1,9 +1,16 @@
 import "./Navigation.css";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import React from "react";
+import Api from "../../utils/api";
 
-function Navigation({ isMainPage }) {
+function Navigation({ isMainPage, openPopup, logout }) {
   const username = React.useContext(CurrentUserContext).name;
+
+  function handleClick(e) {
+    e.preventDefault();
+    if (username) logout();
+    else openPopup(true);
+  }
 
   return (
     <nav className={`navbar ${isMainPage ? "navbar_main" : "navbar_saved"}`}>
@@ -33,6 +40,7 @@ function Navigation({ isMainPage }) {
         <a
           className={`navbar__link ${username && "navbar__link_loggedIn"}`}
           href=""
+          onClick={handleClick}
         >{`${username || "Sign in"}`}</a>
       </div>
       <button className="navbar__btn" type="button"></button>

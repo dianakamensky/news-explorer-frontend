@@ -24,6 +24,7 @@
 
 .popup__message {
   width: 430px;
+  height: 380px;
   background: #ffffff;
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
   border-radius: 10px;
@@ -34,8 +35,43 @@
 }
 
 .popup__form {
-  margin: auto;
+  margin: 0;
   width: 83%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 8%;
+}
+
+.popup__input-label {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #2f71e5;
+}
+
+.popup__input {
+  border: none;
+  border-bottom: 1px solid #e6e8eb;
+  color: black;
+  padding-bottom: 10px;
+  padding-top: 9px;
+}
+
+.popup__input::placeholder {
+  opacity: 0.2;
+}
+
+.popup__input-error {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #ff0000;
+  visibility: hidden;
+  margin: 3px 0 13px 0;
 }
 
 .popup__close-btn {
@@ -59,6 +95,8 @@
   font-size: 24px;
   line-height: 28px;
   color: #1a1b22;
+  margin-left: 8%;
+  margin-top: 34px;
 }
 
 .popup__submit-btn {
@@ -67,12 +105,13 @@
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
-  width: 83%;
   height: 64px;
   background: #e6e8eb;
+  border: none;
   border-radius: 100px;
   color: #b6bcbf;
   text-align: center;
+  margin-top: 34px;
 }
 
 .popup__submit-btn_active {
@@ -92,4 +131,5 @@
 
 .popup__switch-link {
   color: #2f71e5;
+  text-decoration: none;
 }

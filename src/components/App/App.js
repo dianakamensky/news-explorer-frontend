@@ -8,8 +8,14 @@ import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import SavedNews from "../SavedNews/SavedNews";
 import { SavedCardsContext } from "../../contexts/SavedCardsContext";
+import mainApi from "../../utils/MainApi";
+import SignInPopup from "../Popups/SignInPopup";
+import SignUpPopup from "../Popups/SignUpPopup";
+import InfoToolTip from "../Popups/InfoToolTip";
 
 function App({ props }) {
+  React.useEffect(initLoggedIn, []);
+
   const [currentUser, setCurrentUser] = React.useState({
     _id: "momo",
     name: "mama",
@@ -57,23 +63,70 @@ function App({ props }) {
     },
   ]);
 
+  const [isSignInPopupOpen, setIsSignInPopupOpen] = React.useState(false);
+  const [isSignUpPopupOpen, setIsSignUpPopupOpen] = React.useState(false);
+  const [isInfoToolTipOpen, setIsInfoToolTipOpen] = React.useState(false);
+
+  function deleteArticle(id) {
+    mainApi
+      .deleteArticle(id)
+      .then(() => setSavedCards(savedCards.filter((c) => c._id !== id)))
+      .catch((error) => console.log(error));
+  }
+
+  function closeAllPopups() {
+    setIsSignInPopupOpen(false);
+    setIsSignUpPopupOpen(false);
+    setIsInfoToolTipOpen(false);
+  }
+
+  function initLoggedIn() {
+    mainApi
+      .getUserInfo()
+      .then((res) => {
+        if (res) {
+          setCurrentUser(res.data);
+        } else setCurrentUser({});
+      })
+      .catch((err) => {
+        console.log(err);
+        setCurrentUser({});
+      });
+  }
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <SavedCardsContext.Provider value={savedCards}>
-        <Header></Header>
+        <Header
+          openPopup={setIsSignInPopupOpen}
+          logout={() => localStorage.removeItem("jwt")}
+        ></Header>
         <Switch>
           <Route exact path="/">
-            <Main></Main>
+            <Main deleteArticle={deleteArticle}></Main>
           </Route>
           <ProtectedRoute
             path="/saved-news"
             component={SavedNews}
             loggedIn={currentUser._id}
+            deleteArticle={deleteArticle}
           />
           ;
         </Switch>
         <Footer></Footer>
       </SavedCardsContext.Provider>
+      <SignInPopup
+        isOpen={isSignInPopupOpen}
+        onClose={closeAllPopups}
+      ></SignInPopup>
+      <SignUpPopup
+        isOpen={isSignUpPopupOpen}
+        onClose={closeAllPopups}
+      ></SignUpPopup>
+      <InfoToolTip
+        isOpen={isInfoToolTipOpen}
+        onClose={closeAllPopups}
+      ></InfoToolTip>
     </CurrentUserContext.Provider>
   );
 }

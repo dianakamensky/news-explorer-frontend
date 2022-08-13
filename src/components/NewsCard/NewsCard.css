@@ -8,6 +8,7 @@
 
 .card__image {
   width: 100%;
+  height: 272px;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
 }
@@ -36,6 +37,10 @@
   background: #ffffff;
   border: none;
   border-radius: 8px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .card__text {
@@ -107,6 +112,14 @@
     height: 420px;
   }
 
+  .card__image {
+    height: 150px;
+  }
+
+  .card__title {
+    -webkit-line-clamp: 2;
+  }
+
   .card__keyword {
     padding: 8px 20px;
     margin: 0;
@@ -131,6 +144,7 @@
 
   .card__description {
     margin: 10px 0px 12px 0;
+    -webkit-line-clamp: 5;
   }
 
   .card__source {

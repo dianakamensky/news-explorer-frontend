@@ -6,15 +6,29 @@ import Bin from "../../images/trash.svg";
 import Saved from "../../images/saved.svg";
 import Save from "../../images/save.svg";
 
-function NewsCard({ content }) {
-  const currentUser = React.useContext(CurrentUserContext);
+function NewsCard({ content, deleteArticle, saveArticle }) {
   const savedCards = React.useContext(SavedCardsContext);
   const isOwn = content.owner;
 
+  React.useEffect(updateSaved, [savedCards]);
+
+  const [saved, setSaved] = React.useState(false);
+
+  function updateSaved() {
+    setSaved(savedCards.some((card) => card.link === content.url));
+  }
+
   function icon() {
     if (isOwn) return Bin;
-    if (savedCards.some((card) => card.link === content.url)) return Saved;
-    return Save;
+    return saved ? Saved : Save;
+  }
+
+  function handleClick(e) {
+    if (isOwn || saved) {
+      deleteArticle(content._id);
+      return;
+    }
+    saveArticle(content);
   }
 
   return (
@@ -25,7 +39,7 @@ function NewsCard({ content }) {
         alt={content.title}
       ></img>
       {isOwn && <p className="card__keyword">{content.keyword}</p>}
-      <button type="button" className="card__btn">
+      <button type="button" className="card__btn" onClick={handleClick}>
         <img className="card__btn-icon" src={icon()}></img>
       </button>
       <div className="card__text">

@@ -1,6 +1,16 @@
-import "./PopupWithForm.css";
+import "./Popup.css";
 
-function PopupWithForm() {
+function PopupWithForm({
+  isOpen,
+  onClose,
+  title,
+  formName,
+  onSubmit,
+  formRef,
+  children,
+  isValid,
+  submitText,
+}) {
   return (
     <div className={`popup ${isOpen ? "popup_open" : ""}`}>
       <div className="popup__message">
@@ -27,9 +37,14 @@ function PopupWithForm() {
           </button>
         </form>
         <p className="popup__switch">
-          or <a className="popup__switch-link" href=""></a>
+          or{" "}
+          <a className="popup__switch-link" href="">
+            sign up
+          </a>
         </p>
       </div>
     </div>
   );
 }
+
+export default PopupWithForm;

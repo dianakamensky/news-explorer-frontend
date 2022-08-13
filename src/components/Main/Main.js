@@ -29,8 +29,11 @@ function Main(props) {
       </section>
       {articles.length > 0 && (
         <section className="main__results">
-          <h2 className="main__results-title"></h2>
-          <NewsCardList items={articles}></NewsCardList>
+          <h2 className="main__results-title">Search Results</h2>
+          <NewsCardList
+            items={articles}
+            deleteArticle={props.deleteArticle}
+          ></NewsCardList>
           <button className="main__results-button">Show more</button>
         </section>
       )}

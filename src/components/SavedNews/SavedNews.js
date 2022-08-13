@@ -11,7 +11,10 @@ function SavedNews(props) {
     <main className="saved-news">
       <SavedNewsHeader></SavedNewsHeader>
       <section className="saved-news__card-section">
-        <NewsCardList items={savedCards}></NewsCardList>
+        <NewsCardList
+          items={savedCards}
+          deleteArticle={props.deleteArticle}
+        ></NewsCardList>
       </section>
     </main>
   );

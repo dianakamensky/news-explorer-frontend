@@ -3,7 +3,7 @@ import "./Header.css";
 import Navigation from "../Navigation/Navigation";
 import { useLocation } from "react-router-dom";
 
-function Header(props) {
+function Header({ openPopup, logout }) {
   const location = useLocation();
 
   return (
@@ -15,7 +15,11 @@ function Header(props) {
       <Link className="header__logo" to="/">
         NewsExplorer
       </Link>
-      <Navigation isMainPage={location.pathname === "/"}></Navigation>
+      <Navigation
+        isMainPage={location.pathname === "/"}
+        openPopup={openPopup}
+        logout={logout}
+      ></Navigation>
     </header>
   );
 }

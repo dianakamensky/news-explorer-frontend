@@ -7,7 +7,7 @@ export default class Api {
   _request(path, method, body, headers = {}) {
     const url = new URL(`${this._url}/${path}`);
     if (method === "GET") {
-      Object.keys(body).forEach((key) =>
+      Object.keys(body || {}).forEach((key) =>
         url.searchParams.append(key, body[key])
       );
     }
@@ -21,6 +21,27 @@ export default class Api {
         return res.json();
       }
       return Promise.reject(res);
+    });
+  }
+
+  _requestJ(path, method, body, headers = {}) {
+    const jwt = localStorage.getItem("jwt");
+    if (jwt) {
+      headers.authorization = `Bearer ${jwt}`;
+    }
+    return this._request(path, method, body, headers);
+  }
+
+  register(email, password) {
+    return this._request("signup", "POST", { password, email });
+  }
+
+  authorize(email, password) {
+    return this._request("signin", "POST", { password, email }).then((data) => {
+      if (data.token) {
+        localStorage.setItem("jwt", data.token);
+      }
+      return data;
     });
   }
 }
