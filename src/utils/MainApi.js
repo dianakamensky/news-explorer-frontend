@@ -10,7 +10,7 @@ class MainApi extends Api {
   }
 
   authorize(email, password) {
-    return this._requestJ("signin", "POST", { password, email }).then(
+    return this._request("signin", "POST", { password, email }).then(
       (data) => {
         if (data.token) {
           localStorage.setItem("jwt", data.token);
@@ -18,6 +18,18 @@ class MainApi extends Api {
         return data;
       }
     );
+  }
+
+  register(email, password, name) {
+    return this._request("signup", "POST", { password, email, name });
+  }
+
+  getSavedArticles() {
+    return this._requestJ("articles", "GET");
+  }
+
+  saveArticle(content, input) {
+   return this._requestJ("/", "POST", {source: content.source.name, title: content.title, text: content.description, date: content.publishedAt, link: content.url, image: content.urlToImage, keyword: input});
   }
 }
 

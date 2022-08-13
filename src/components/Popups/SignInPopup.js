@@ -1,7 +1,7 @@
 import React from "react";
 import PopupWithForm from "./PopupWithForm";
 
-function SignInPopup({ isOpen, onClose, handleSubmit }) {
+function SignInPopup({ isOpen, onClose, handleSubmit, openSignUp }) {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
 
@@ -26,6 +26,8 @@ function SignInPopup({ isOpen, onClose, handleSubmit }) {
       submitText="Sign In"
       onSubmit={onSubmit}
       onClose={onClose}
+      altOption="sign up"
+      handleAlt={openSignUp}
     >
       <label htmlFor="email" className="popup__input-label">
         Email

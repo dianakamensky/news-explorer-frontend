@@ -1,7 +1,7 @@
-function InfoToolTip({ isOpen, onClose }) {
+function InfoToolTip({ isOpen, onClose, openSignIn }) {
   return (
     <div className={`popup ${isOpen ? "popup_open" : ""}`}>
-      <div className="popup__message">
+      <div className="popup__message  popup__message_info-tooltip">
         <button
           type="button"
           className="popup__close-btn"
@@ -9,9 +9,9 @@ function InfoToolTip({ isOpen, onClose }) {
         ></button>
         <h2 className="popup__title">Registration successfully completed!</h2>
         <p className="popup__switch">
-          <a className="popup__signin-link" href="">
+          <button className="popup__signin-button" onClick={openSignIn}>
             Sign in
-          </a>
+          </button>
         </p>
       </div>
     </div>

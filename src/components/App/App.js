@@ -14,64 +14,38 @@ import SignUpPopup from "../Popups/SignUpPopup";
 import InfoToolTip from "../Popups/InfoToolTip";
 
 function App({ props }) {
-   React.useEffect(initLoggedIn, []);
+  const location = useLocation();
+
+  React.useEffect(initLoggedIn, [location.pathname]);
 
   const [currentUser, setCurrentUser] = React.useState({
-    _id: "momo",
     name: "mama",
+    email: "diana@gmail.com",
   });
 
-  const [savedCards, setSavedCards] = React.useState([
-    {
-      keyword: "Tesla",
-      source: "Notebookcheck.net",
-      author: "Daniel Zlatev",
-      owner: currentUser,
-      title:
-        "Tesla Model Y in China now comes with extra airbag protection safety that the US factory version lacks",
-      text: "The promised upgrade of Tesla's sprawling Gigafactory in Shanghai has brought the first tangible Model Y improvement in the form of a new airbag. The Chinese-made Model Ys are now shipping with a new driver seat airbag aimed to prevent driver-on-passenger inj…",
-      link: "https://www.notebookcheck.net/Tesla-Model-Y-in-China-now-comes-with-extra-airbag-protection-safety-that-the-US-factory-version-lacks.639802.0.html",
-      image:
-        "https://www.notebookcheck.net/fileadmin/Notebooks/News/_nc3/Model_Y_far_side_airbag.jpg",
-      date: "2022-08-09T13:46:00Z",
-    },
-    {
-      keyword: "Tesla",
-      source: "Notebookcheck.net",
-      author: "Daniel Zlatev",
-      owner: currentUser,
-      title:
-        "Tesla Model Y in China now comes with extra airbag protection safety that the US factory version lacks",
-      text: "The promised upgrade of Tesla's sprawling Gigafactory in Shanghai has brought the first tangible Model Y improvement in the form of a new airbag. The Chinese-made Model Ys are now shipping with a new driver seat airbag aimed to prevent driver-on-passenger inj…",
-      link: "https://www.notebookcheck.net/Tesla-Model-Y-in-China-now-comes-with-extra-airbag-protection-safety-that-the-US-factory-version-lacks.639802.0.html",
-      image:
-        "https://www.notebookcheck.net/fileadmin/Notebooks/News/_nc3/Model_Y_far_side_airbag.jpg",
-      date: "2022-08-09T13:46:00Z",
-    },
-    {
-      keyword: "Tesla",
-      source: "Notebookcheck.net",
-      author: "Daniel Zlatev",
-      owner: currentUser,
-      title:
-        "Tesla Model Y in China now comes with extra airbag protection safety that the US factory version lacks",
-      text: "The promised upgrade of Tesla's sprawling Gigafactory in Shanghai has brought the first tangible Model Y improvement in the form of a new airbag. The Chinese-made Model Ys are now shipping with a new driver seat airbag aimed to prevent driver-on-passenger inj…",
-      link: "https://www.notebookcheck.net/Tesla-Model-Y-in-China-now-comes-with-extra-airbag-protection-safety-that-the-US-factory-version-lacks.639802.0.html",
-      image:
-        "https://www.notebookcheck.net/fileadmin/Notebooks/News/_nc3/Model_Y_far_side_airbag.jpg",
-      date: "2022-08-09T13:46:00Z",
-    },
-  ]);
+  const [savedCards, setSavedCards] = React.useState([]);
 
   const [isSignInPopupOpen, setIsSignInPopupOpen] = React.useState(false);
   const [isSignUpPopupOpen, setIsSignUpPopupOpen] = React.useState(false);
   const [isInfoToolTipOpen, setIsInfoToolTipOpen] = React.useState(false);
+  const [signUpMessage, setSignUpMessage] = React.useState(null);
+
+  function getSavedArticles() {
+    mainApi
+      .getSavedArticles()
+      .then((articles) => {setSavedCards(articles.data)})
+      .catch((err) => console.log(err));
+  }
 
   function deleteArticle(id) {
     mainApi
       .deleteArticle(id)
       .then(() => setSavedCards(savedCards.filter((c) => c._id !== id)))
       .catch((error) => console.log(error));
+  }
+
+  function saveArticle(content, input) {
+    mainApi.saveArticle(content, input).then(() => getSavedArticles()).catch((error) => console.log(error));
   }
 
   function closeAllPopups() {
@@ -86,6 +60,7 @@ function App({ props }) {
       .then((res) => {
         if (res) {
           setCurrentUser(res);
+          getSavedArticles();
         } else setCurrentUser({});
       })
       .catch((err) => {
@@ -104,9 +79,31 @@ function App({ props }) {
       .catch((res) => window.alert(res.statusText));
   }
 
+  function signUp(email, password, name) {
+    mainApi
+      .register(email, password, name)
+      .then((data) => {
+        closeAllPopups();
+        setIsInfoToolTipOpen(true);
+      })
+      .catch((res) =>
+        res.json().then((data) => setSignUpMessage(data.message))
+      );
+  }
+
   function signOut() {
     localStorage.removeItem("jwt");
     setCurrentUser({});
+  }
+
+  function openSignUp() {
+    closeAllPopups();
+    setIsSignUpPopupOpen(true);
+  }
+
+  function openSignIn() {
+    closeAllPopups();
+    setIsSignInPopupOpen(true);
   }
 
   return (
@@ -115,12 +112,11 @@ function App({ props }) {
         <Header openPopup={setIsSignInPopupOpen} logout={signOut}></Header>
         <Switch>
           <Route exact path="/">
-            <Main deleteArticle={deleteArticle}></Main>
+            <Main deleteArticle={deleteArticle} saveArticle={saveArticle}></Main>
           </Route>
           <ProtectedRoute
             path="/saved-news"
             component={SavedNews}
-            loggedIn={currentUser._id}
             deleteArticle={deleteArticle}
           />
           ;
@@ -131,14 +127,19 @@ function App({ props }) {
         isOpen={isSignInPopupOpen}
         onClose={closeAllPopups}
         handleSubmit={signIn}
+        openSignUp={openSignUp}
       ></SignInPopup>
       <SignUpPopup
         isOpen={isSignUpPopupOpen}
         onClose={closeAllPopups}
+        handleSubmit={signUp}
+        openSignIn={openSignIn}
+        message={signUpMessage}
       ></SignUpPopup>
       <InfoToolTip
         isOpen={isInfoToolTipOpen}
         onClose={closeAllPopups}
+        openSignIn={openSignIn}
       ></InfoToolTip>
     </CurrentUserContext.Provider>
   );

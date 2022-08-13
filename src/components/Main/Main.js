@@ -7,11 +7,12 @@ import newsApi from "../../utils/NewsApi";
 
 function Main(props) {
   const [articles, setArticles] = React.useState({});
+  const [keyword, setKeyword] = React.useState(null);
 
   function retrieveArticles(input) {
     newsApi
       .getSearchResults(input)
-      .then((res) => setArticles(res.articles))
+      .then((res) => {setArticles(res.articles); setKeyword(input)})
       .catch((err) => window.alert(`Error loading articles: ${err}`));
   }
 
@@ -33,6 +34,8 @@ function Main(props) {
           <NewsCardList
             items={articles}
             deleteArticle={props.deleteArticle}
+            saveArticle={props.saveArticle}
+            keyword={keyword}
           ></NewsCardList>
           <button className="main__results-button">Show more</button>
         </section>

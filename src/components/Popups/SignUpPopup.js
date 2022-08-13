@@ -1,15 +1,40 @@
 import React from "react";
 import PopupWithForm from "./PopupWithForm";
 
-function SignUpPopup({ isOpen, onClose, handleSubmit }) {
+function SignUpPopup({ isOpen, onClose, handleSubmit, openSignIn, message }) {
+
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [username, setUsername] = React.useState("");
+
+  function handleEmailChange(e) {
+    setEmail(e.target.value);
+  }
+
+  function handlePasswordChange(e) {
+    setPassword(e.target.value);
+  }
+
+  function handleUserNameChange(e) {
+    setUsername(e.target.value);
+  }
+
+  function onSubmit(e) {
+    e.preventDefault();
+    handleSubmit(email, password, username);
+  }
+
+
   return (
     <PopupWithForm
       title="Sign Up"
       formName="signUp"
       isOpen={isOpen}
       submitText="Sign Up"
-      onSubmit={handleSubmit}
+      onSubmit={onSubmit}
       onClose={onClose}
+      altOption="sign in"
+      handleAlt={openSignIn}
     >
       <label htmlFor="emailsignup" className="popup__input-label">
         Email
@@ -22,6 +47,7 @@ function SignUpPopup({ isOpen, onClose, handleSubmit }) {
         id="emailsignup"
         minLength="2"
         maxLength="40"
+        onChange={handleEmailChange}
         required
       />
       <label htmlFor="passwordsignup" className="popup__input-label">
@@ -35,6 +61,7 @@ function SignUpPopup({ isOpen, onClose, handleSubmit }) {
         id="passwordsignup"
         minLength="2"
         maxLength="40"
+        onChange={handlePasswordChange}
         required
       />
       <label htmlFor="username" className="popup__input-label">
@@ -48,9 +75,10 @@ function SignUpPopup({ isOpen, onClose, handleSubmit }) {
         id="username"
         minLength="2"
         maxLength="40"
+        onChange={handleUserNameChange}
         required
       />
-      <p className="popup__input-error">This email is not available</p>
+      {message && <p className="popup__submit-error">{message}</p>}
     </PopupWithForm>
   );
 }

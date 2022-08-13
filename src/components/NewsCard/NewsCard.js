@@ -6,7 +6,7 @@ import Bin from "../../images/trash.svg";
 import Saved from "../../images/saved.svg";
 import Save from "../../images/save.svg";
 
-function NewsCard({ content, deleteArticle, saveArticle }) {
+function NewsCard({ content, deleteArticle, saveArticle, keyword }) {
   const savedCards = React.useContext(SavedCardsContext);
   const isOwn = content.owner;
 
@@ -28,7 +28,7 @@ function NewsCard({ content, deleteArticle, saveArticle }) {
       deleteArticle(content._id);
       return;
     }
-    saveArticle(content);
+    saveArticle(content, keyword);
   }
 
   return (

@@ -9,6 +9,8 @@ function PopupWithForm({
   onSubmit,
   children,
   submitText,
+  altOption,
+  handleAlt
 }) {
   const formRef = React.useRef();
 
@@ -45,9 +47,9 @@ function PopupWithForm({
         </form>
         <p className="popup__switch">
           or{" "}
-          <a className="popup__switch-link" href="">
-            sign up
-          </a>
+          <button className="popup__switch-link" onClick={handleAlt}>
+            {altOption}
+          </button>
         </p>
       </div>
     </div>
