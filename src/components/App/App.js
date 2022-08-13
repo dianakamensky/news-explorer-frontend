@@ -18,10 +18,7 @@ function App({ props }) {
 
   React.useEffect(initLoggedIn, [location.pathname]);
 
-  const [currentUser, setCurrentUser] = React.useState({
-    name: "mama",
-    email: "diana@gmail.com",
-  });
+  const [currentUser, setCurrentUser] = React.useState({});
 
   const [savedCards, setSavedCards] = React.useState([]);
 

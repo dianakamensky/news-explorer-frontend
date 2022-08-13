@@ -26,9 +26,11 @@ function NewsCard({ content, deleteArticle, saveArticle, keyword }) {
   function handleClick(e) {
     if (isOwn || saved) {
       deleteArticle(content._id);
-      return;
     }
+    else {
     saveArticle(content, keyword);
+    
+    }
   }
 
   return (
