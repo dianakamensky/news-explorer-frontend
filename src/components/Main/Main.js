@@ -7,12 +7,15 @@ import newsApi from "../../utils/NewsApi";
 
 function Main(props) {
   const [articles, setArticles] = React.useState({});
-  const [keyword, setKeyword] = React.useState(null);
+
+  function convertArticles(content, keyword) {
+    return {keyword, source: content.source.name, title: content.title, text: content.description, date: content.publishedAt, link: content.url, image: content.urlToImage}
+  }
 
   function retrieveArticles(input) {
     newsApi
       .getSearchResults(input)
-      .then((res) => {setArticles(res.articles); setKeyword(input)})
+      .then((res) => {setArticles(res.articles.map((article) => convertArticles(article, input)))})
       .catch((err) => window.alert(`Error loading articles: ${err}`));
   }
 
@@ -35,7 +38,6 @@ function Main(props) {
             items={articles}
             deleteArticle={props.deleteArticle}
             saveArticle={props.saveArticle}
-            keyword={keyword}
           ></NewsCardList>
           <button className="main__results-button">Show more</button>
         </section>

@@ -29,7 +29,7 @@ class MainApi extends Api {
   }
 
   saveArticle(content, input) {
-   return this._requestJ("/", "POST", {source: content.source.name, title: content.title, text: content.description, date: content.publishedAt, link: content.url, image: content.urlToImage, keyword: input});
+   return this._requestJ("articles", "POST", content);
   }
 }
 

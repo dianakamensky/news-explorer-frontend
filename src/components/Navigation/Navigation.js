@@ -2,6 +2,7 @@ import "./Navigation.css";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import React from "react";
 import Api from "../../utils/api";
+import { Link } from 'react-router-dom';
 
 function Navigation({ isMainPage, openPopup, logout }) {
   const currentUser = React.useContext(CurrentUserContext);
@@ -20,9 +21,9 @@ function Navigation({ isMainPage, openPopup, logout }) {
           isMainPage ? "navbar__option_current" : ""
         }`}
       >
-        <a className="navbar__link" href="/">
+        <Link className="navbar__link" to="/">
           Home
-        </a>
+        </Link>
       </div>
 
       {username && (
@@ -31,18 +32,17 @@ function Navigation({ isMainPage, openPopup, logout }) {
             isMainPage ? "" : "navbar__option_current"
           }`}
         >
-          <a className="navbar__link" href="/saved-news">
+          <Link className="navbar__link" to="/saved-news">
             Saved articles
-          </a>
+          </Link>
         </div>
       )}
 
       <div className="navbar__option">
-        <a
+        <button
           className={`navbar__link ${username && "navbar__link_loggedIn"}`}
-          href=""
           onClick={handleClick}
-        >{`${username || "Sign in"}`}</a>
+        >{`${username || "Sign in"}`}</button>
       </div>
       <button className="navbar__btn" type="button"></button>
     </nav>

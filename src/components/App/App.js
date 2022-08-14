@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import ProtectedRoute from "../ProtectedRoute";
-import { Route, Switch, withRouter, useLocation } from "react-router-dom";
+import { Route, Switch, withRouter, useLocation, useHistory } from "react-router-dom";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
@@ -16,9 +16,9 @@ import InfoToolTip from "../Popups/InfoToolTip";
 function App({ props }) {
   const location = useLocation();
 
-  React.useEffect(initLoggedIn, [location.pathname]);
-
   const [currentUser, setCurrentUser] = React.useState({});
+
+  React.useEffect(initLoggedIn, []);
 
   const [savedCards, setSavedCards] = React.useState([]);
 
@@ -42,7 +42,7 @@ function App({ props }) {
   }
 
   function saveArticle(content, input) {
-    mainApi.saveArticle(content, input).then(() => getSavedArticles()).catch((error) => console.log(error));
+    mainApi.saveArticle(content, input).then(() => {getSavedArticles(); }).catch((error) => console.log(error));
   }
 
   function closeAllPopups() {
@@ -52,17 +52,18 @@ function App({ props }) {
   }
 
   function initLoggedIn() {
+    console.log(currentUser);
     mainApi
       .getUserInfo()
       .then((res) => {
         if (res) {
           setCurrentUser(res);
           getSavedArticles();
-        } else setCurrentUser({});
+          } else signOut();
       })
       .catch((err) => {
         console.log(err);
-        setCurrentUser({});
+        signOut();
       });
   }
 
