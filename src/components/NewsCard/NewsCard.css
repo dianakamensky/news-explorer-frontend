@@ -29,6 +29,7 @@
 }
 
 .card__btn {
+  margin: 0;
   position: absolute;
   top: 24px;
   right: 24px;
@@ -45,6 +46,29 @@
 
 .card__btn:hover {
   cursor: pointer;
+}
+
+.card__btn-message {
+  margin: 0;
+  display: none;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  align-items: center;
+  text-align: center;
+  color: #000000;
+  padding: 11px 20px;
+  background-color: white;
+  border-radius: 10px;
+  position: absolute;
+  top: 24px;
+  right: 69px;
+}
+
+.card__btn:hover + .card__btn-message {
+  display: block;
 }
 
 .card__text {
@@ -141,6 +165,20 @@
     right: 8px;
   }
 
+  .card__btn-message {
+    font-size: 12px;
+    line-height: 14px;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+    padding: 12px 12px;
+    background-color: white;
+    border-radius: 10px;
+    position: absolute;
+    top: 8px;
+    right: 52px;
+  }
+
   .card__text {
     margin-left: 16px;
     margin-right: 16px;
@@ -181,6 +219,11 @@
   .card__btn {
     top: 16px;
     right: 16px;
+  }
+
+  .card__btn-message {
+    top: 16px;
+    right: 60px;
   }
 
   .card__text {

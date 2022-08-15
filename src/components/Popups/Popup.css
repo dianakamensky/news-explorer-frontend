@@ -162,3 +162,31 @@
 .popup__message_info-tooltip {
   max-height: 182px;
 }
+
+@media all and (min-width: 320px) and (max-width: 766px) {
+  .popup__message {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    top: 56px;
+    height: 100vh;
+    border-radius: 20px;
+  }
+
+  .popup__close-btn {
+    right: 16px;
+    height: 24px;
+    width: 24px;
+  }
+
+  .popup__title {
+    margin-top: 16px;
+    margin-left: 5%;
+  }
+
+  .popup__form {
+    margin-left: 5%;
+    width: 90%;
+    justify-content: center;
+  }
+}

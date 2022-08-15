@@ -9,6 +9,7 @@ import Save from "../../images/save.svg";
 function NewsCard({ content, deleteArticle, saveArticle, bin }) {
   const savedCards = React.useContext(SavedCardsContext);
   const date = new Date(content.date).toLocaleDateString(undefined, {weekday: undefined, month: 'long', day: 'numeric', year: 'numeric'});
+  const currentUser = React.useContext(CurrentUserContext);
 
   React.useEffect(updateSaved, [savedCards]);
 
@@ -44,6 +45,7 @@ function NewsCard({ content, deleteArticle, saveArticle, bin }) {
       <button type="button" className="card__btn" onClick={handleClick}>
         <img className="card__btn-icon" src={icon()}></img>
       </button>
+      {!currentUser.email && (<p className="card__btn-message">Sign in to save articles</p>)}
       <div className="card__text">
         <p className="card__date">{date}</p>
         <h3 className="card__title"><a href={content.link}>{content.title}</a></h3>

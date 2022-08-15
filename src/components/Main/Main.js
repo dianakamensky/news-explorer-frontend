@@ -52,13 +52,15 @@ function Main(props) {
     newsApi
       .getSearchResults(input)
       .then((res) => {
+        setWrongRequest(false);
         setPreloader(false);
         updateArticles(res.articles, []);
       })
-      .catch((err) =>
+      .catch((err) =>{
+        setPreloader(false);
         setWrongRequest(
           "Sorry, something went wrong during the request. There may be a connection issue or the server may be down. Please try again later."
-        )
+        )}
       );
   }
 
@@ -108,8 +110,9 @@ function Main(props) {
                   Sorry, but nothing matched your search terms.
                 </p>
               </div>
-            )
-          )}
+            ))}
+            {!preloader && wrongRequest && 
+            (<p className="main__results-message">{wrongRequest}</p>)}
           {showMore && !preloader && currentInput && (
             <button className="main__results-button" onClick={getMoreArticles}>
               Show more

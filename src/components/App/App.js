@@ -92,6 +92,7 @@ function App({ props }) {
   function signOut() {
     localStorage.removeItem("jwt");
     setCurrentUser({});
+    setSavedCards([]);
   }
 
   function openSignUp() {

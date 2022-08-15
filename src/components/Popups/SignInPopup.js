@@ -26,7 +26,7 @@ function SignInPopup({ isOpen, onClose, handleSubmit, openSignUp }) {
       submitText="Sign In"
       onSubmit={onSubmit}
       onClose={onClose}
-      altOption="sign up"
+      altOption="Sign up"
       handleAlt={openSignUp}
     >
       <label htmlFor="email" className="popup__input-label">

@@ -88,6 +88,11 @@
     border-bottom: none;
   }
 
+  .header_popup .navbar__option:last-child {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
   .header_saved-news.header_popup .navbar {
     background-color: white;
   }
