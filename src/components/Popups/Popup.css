@@ -57,6 +57,11 @@
   color: black;
   padding-bottom: 10px;
   padding-top: 9px;
+  border-radius: inherit;
+}
+
+.popup__input:focus {
+  outline: none;
 }
 
 .popup__input::placeholder {
@@ -97,6 +102,7 @@
   background-image: url("../../images/x.svg");
   background-repeat: no-repeat;
   background-size: cover;
+  cursor: pointer;
 }
 
 .popup__title {
