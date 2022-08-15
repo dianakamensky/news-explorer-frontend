@@ -46,7 +46,7 @@ function NewsCard({ content, deleteArticle, saveArticle, bin }) {
       </button>
       <div className="card__text">
         <p className="card__date">{date}</p>
-        <h3 className="card__title">{content.title}</h3>
+        <h3 className="card__title"><a href={content.link}>{content.title}</a></h3>
         <p className="card__description">{content.text}</p>
         <p className="card__source">
           {content.source}

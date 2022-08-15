@@ -27,6 +27,7 @@
   text-decoration: none;
   color: inherit;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .navbar__option_current {

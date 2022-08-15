@@ -53,7 +53,6 @@ function App({ props }) {
   }
 
   function initLoggedIn() {
-    console.log(currentUser);
     mainApi
       .getUserInfo()
       .then((res) => {
