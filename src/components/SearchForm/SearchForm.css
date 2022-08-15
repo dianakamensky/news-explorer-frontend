@@ -44,6 +44,11 @@
 
 .search-form__button:hover {
   cursor: pointer;
+  background: #347eff;
+}
+
+.search-form__button:active {
+  background: #2a65cc;
 }
 
 @media all and (min-width: 767px) and (max-width: 1000px) {

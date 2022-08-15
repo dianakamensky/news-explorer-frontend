@@ -105,6 +105,8 @@
 
 .main__results-button:hover {
   cursor: pointer;
+  background: #E8E8E8;
+  opacity: 0.9;
 }
 
 @media all and (min-width: 767px) and (max-width: 1000px) {
