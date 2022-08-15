@@ -34,9 +34,6 @@
   border-bottom: 3px solid;
 }
 
-.navbar__link_loggedIn::after {
-}
-
 .navbar__option:last-child {
   height: 60%;
   border: 1px solid;

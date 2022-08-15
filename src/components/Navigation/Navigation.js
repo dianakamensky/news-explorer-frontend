@@ -3,6 +3,8 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import React from "react";
 import Api from "../../utils/api";
 import { Link } from "react-router-dom";
+import logoutBlack from "../../images/logout-black.svg";
+import logoutWhite from "../../images/logout-white.svg";
 
 function Navigation({ isMainPage, openPopup, logout, toggleNavPopup }) {
   const currentUser = React.useContext(CurrentUserContext);
@@ -45,6 +47,8 @@ function Navigation({ isMainPage, openPopup, logout, toggleNavPopup }) {
           className={`navbar__link ${username && "navbar__link_loggedIn"}`}
           onClick={handleClick}
         >{`${username || "Sign in"}`}</button>
+        {currentUser.email && !isMainPage && (<img className="navbar__logout" src={logoutBlack}></img>)}
+        {currentUser.email && isMainPage && (<img className="navbar__logout" src={logoutWhite}></img>)}
       </div>
     </nav>
   );
