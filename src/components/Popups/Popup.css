@@ -19,7 +19,7 @@
   visibility: visible;
   pointer-events: all;
   transition: visibility 0ms 0ms, opacity 600ms 0ms;
-  z-index: 1;
+  z-index: 3;
 }
 
 .popup__message {

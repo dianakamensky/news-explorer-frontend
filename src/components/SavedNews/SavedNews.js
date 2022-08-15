@@ -14,6 +14,7 @@ function SavedNews(props) {
         <NewsCardList
           items={savedCards}
           deleteArticle={props.deleteArticle}
+          bin={true}
         ></NewsCardList>
       </section>
     </main>

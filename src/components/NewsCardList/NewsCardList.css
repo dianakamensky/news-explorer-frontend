@@ -5,7 +5,6 @@
   flex-wrap: wrap;
   padding: 62px 5%;
   width: 90%;
-  justify-content: space-between;
 }
 
 @media all and (min-width: 767px) and (max-width: 1000px) {

@@ -13,6 +13,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .navbar__link {
@@ -23,6 +26,7 @@
   line-height: 24px;
   text-decoration: none;
   color: inherit;
+  overflow: hidden;
 }
 
 .navbar__option_current {
@@ -38,10 +42,12 @@
   border-radius: 100px;
   width: 176px;
   text-align: center;
+  background: none;
 }
 
-.navbar__btn {
-  display: none;
+.navbar__option:last-child .navbar__link {
+  background: none;
+  border: none;
 }
 
 @media all and (min-width: 767px) and (max-width: 1000px) {
@@ -55,14 +61,33 @@
     display: none;
   }
 
-  .navbar__btn {
-    display: block;
-    width: 24px;
-    height: 24px;
-    background: none;
-    border: none;
-    padding: 0;
-    background-image: url("../../images/menu-white.svg");
+  .header_popup .navbar {
+    height: 174px;
+    background: #1a1b22;
+    position: absolute;
+    top: 57px;
+    right: 0;
+    left: 0;
+    flex-direction: column;
+    justify-content: space-evenly;
   }
 
+  .header_popup .navbar__option {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    height: min-content;
+  }
+
+  .header_popup .navbar__link {
+    width: 100%;
+  }
+
+  .header_popup .navbar__option_current {
+    border-bottom: none;
+  }
+
+  .header_saved-news.header_popup .navbar {
+    background-color: white;
+  }
 }

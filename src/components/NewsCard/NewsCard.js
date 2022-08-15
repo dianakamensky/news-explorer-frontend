@@ -6,9 +6,9 @@ import Bin from "../../images/trash.svg";
 import Saved from "../../images/saved.svg";
 import Save from "../../images/save.svg";
 
-function NewsCard({ content, deleteArticle, saveArticle }) {
+function NewsCard({ content, deleteArticle, saveArticle, bin }) {
   const savedCards = React.useContext(SavedCardsContext);
-  const isOwn = content.owner;
+  const date = new Date(content.date).toLocaleDateString(undefined, {weekday: undefined, month: 'long', day: 'numeric', year: 'numeric'});
 
   React.useEffect(updateSaved, [savedCards]);
 
@@ -19,17 +19,17 @@ function NewsCard({ content, deleteArticle, saveArticle }) {
   }
 
   function icon() {
-    if (isOwn) return Bin;
+    if (bin) return Bin;
     return saved ? Saved : Save;
   }
 
   function handleClick(e) {
-    if (isOwn || saved) {
+
+    if (bin || saved) {
       deleteArticle(saved._id);
     }
     else {
     saveArticle(content);
-    
     }
   }
 
@@ -40,12 +40,12 @@ function NewsCard({ content, deleteArticle, saveArticle }) {
         src={content.image}
         alt={content.title}
       ></img>
-      {isOwn && <p className="card__keyword">{content.keyword}</p>}
+      {bin && <p className="card__keyword">{content.keyword}</p>}
       <button type="button" className="card__btn" onClick={handleClick}>
         <img className="card__btn-icon" src={icon()}></img>
       </button>
       <div className="card__text">
-        <p className="card__date">{content.date}</p>
+        <p className="card__date">{date}</p>
         <h3 className="card__title">{content.title}</h3>
         <p className="card__description">{content.text}</p>
         <p className="card__source">

@@ -26,6 +26,7 @@ function App({ props }) {
   const [isSignUpPopupOpen, setIsSignUpPopupOpen] = React.useState(false);
   const [isInfoToolTipOpen, setIsInfoToolTipOpen] = React.useState(false);
   const [signUpMessage, setSignUpMessage] = React.useState(null);
+  const [overlayOpen, setOverlayOpen] = React.useState(false);
 
   function getSavedArticles() {
     mainApi
@@ -107,7 +108,8 @@ function App({ props }) {
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <SavedCardsContext.Provider value={savedCards}>
-        <Header openPopup={setIsSignInPopupOpen} logout={signOut}></Header>
+        <Header openPopup={setIsSignInPopupOpen} logout={signOut} toggleOverlay={setOverlayOpen}></Header>
+        {overlayOpen && <div className="app__overlay"></div>}
         <Switch>
           <Route exact path="/">
             <Main deleteArticle={deleteArticle} saveArticle={saveArticle}></Main>

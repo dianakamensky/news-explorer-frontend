@@ -1,0 +1,17 @@
+.app__overlay {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.5);
+    top: 0px;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   height: 100vh;
+   display: none;
+   z-index: 2;
+  }
+
+  @media all and (min-width: 320px) and (max-width: 766px) {
+    .app__overlay {
+    display: block;
+    }
+  }

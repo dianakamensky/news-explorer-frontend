@@ -33,7 +33,7 @@ function SavedNewsHeader() {
         amountOfArticles === 1 ? "article" : "articles"
       }`}</h2>
       <p className="saved-news-header__keywords">
-        By keywords: {keywordString}
+        By keywords: <span className="saved-news-header__keywords-bold">{keywordString}</span>
       </p>
     </div>
   );

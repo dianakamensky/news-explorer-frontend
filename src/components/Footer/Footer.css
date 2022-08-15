@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   width: 90%;
-  margin: 32px 7% 26px 7%;
+  margin: 32px 5% 26px 5%;
 }
 
 .footer__copyright {
@@ -26,7 +26,7 @@
   color: #1a1b22;
   display: flex;
   width: 33%;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
 .footer__nav-link {

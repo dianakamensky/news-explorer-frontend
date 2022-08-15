@@ -1,11 +1,11 @@
 import "./NewsCardList.css";
 import NewsCard from "../NewsCard/NewsCard";
 
-function NewsCardList({ items, deleteArticle, saveArticle }) {
+function NewsCardList({ items, deleteArticle, saveArticle, bin }) {
   return (
     <div className="newscardlist">
       {items.map((item) => (
-        <NewsCard content={item} key={item.link} deleteArticle={deleteArticle} saveArticle={saveArticle}></NewsCard>
+        <NewsCard bin={bin} content={item} key={item.link} deleteArticle={deleteArticle} saveArticle={saveArticle}></NewsCard>
       ))}
     </div>
   );

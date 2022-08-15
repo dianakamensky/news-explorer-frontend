@@ -2,9 +2,9 @@ import "./Navigation.css";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import React from "react";
 import Api from "../../utils/api";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-function Navigation({ isMainPage, openPopup, logout }) {
+function Navigation({ isMainPage, openPopup, logout, toggleNavPopup }) {
   const currentUser = React.useContext(CurrentUserContext);
   const username = currentUser.name;
 
@@ -19,7 +19,9 @@ function Navigation({ isMainPage, openPopup, logout }) {
       <div
         className={`navbar__option ${
           isMainPage ? "navbar__option_current" : ""
-        }`}
+        } 
+         
+        `} onClick={toggleNavPopup}
       >
         <Link className="navbar__link" to="/">
           Home
@@ -30,21 +32,20 @@ function Navigation({ isMainPage, openPopup, logout }) {
         <div
           className={`navbar__option ${
             isMainPage ? "" : "navbar__option_current"
-          }`}
+          }`} onClick={toggleNavPopup}
         >
-          <Link className="navbar__link" to="/saved-news">
+          <Link className="navbar__link"  to="/saved-news">
             Saved articles
           </Link>
         </div>
       )}
 
-      <div className="navbar__option">
+      <div className="navbar__option" onClick={toggleNavPopup}>
         <button
           className={`navbar__link ${username && "navbar__link_loggedIn"}`}
           onClick={handleClick}
         >{`${username || "Sign in"}`}</button>
       </div>
-      <button className="navbar__btn" type="button"></button>
     </nav>
   );
 }
