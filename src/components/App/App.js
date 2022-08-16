@@ -2,7 +2,13 @@ import React from "react";
 import "./App.css";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import ProtectedRoute from "../ProtectedRoute";
-import { Route, Switch, withRouter, useLocation, useHistory } from "react-router-dom";
+import {
+  Route,
+  Switch,
+  withRouter,
+  useLocation,
+  useHistory
+} from "react-router-dom";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
@@ -15,6 +21,7 @@ import InfoToolTip from "../Popups/InfoToolTip";
 
 function App({ props }) {
   const location = useLocation();
+  const history = useHistory();
 
   const [currentUser, setCurrentUser] = React.useState({});
 
@@ -31,7 +38,9 @@ function App({ props }) {
   function getSavedArticles() {
     mainApi
       .getSavedArticles()
-      .then((articles) => {setSavedCards(articles.data)})
+      .then((articles) => {
+        setSavedCards(articles.data);
+      })
       .catch((err) => console.log(err));
   }
 
@@ -43,7 +52,12 @@ function App({ props }) {
   }
 
   function saveArticle(content, input) {
-    mainApi.saveArticle(content, input).then(() => {getSavedArticles(); }).catch((error) => console.log(error));
+    mainApi
+      .saveArticle(content, input)
+      .then(() => {
+        getSavedArticles();
+      })
+      .catch((error) => console.log(error));
   }
 
   function closeAllPopups() {
@@ -59,7 +73,7 @@ function App({ props }) {
         if (res) {
           setCurrentUser(res);
           getSavedArticles();
-          } else signOut();
+        } else signOut();
       })
       .catch((err) => {
         console.log(err);
@@ -73,6 +87,7 @@ function App({ props }) {
       .then((data) => {
         closeAllPopups();
         initLoggedIn();
+        history.push("/saved-news");
       })
       .catch((res) => window.alert(res.statusText));
   }
@@ -108,11 +123,18 @@ function App({ props }) {
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <SavedCardsContext.Provider value={savedCards}>
-        <Header openPopup={setIsSignInPopupOpen} logout={signOut} toggleOverlay={setOverlayOpen}></Header>
+        <Header
+          openPopup={setIsSignInPopupOpen}
+          logout={signOut}
+          toggleOverlay={setOverlayOpen}
+        ></Header>
         {overlayOpen && <div className="app__overlay"></div>}
         <Switch>
           <Route exact path="/">
-            <Main deleteArticle={deleteArticle} saveArticle={saveArticle}></Main>
+            <Main
+              deleteArticle={deleteArticle}
+              saveArticle={saveArticle}
+            ></Main>
           </Route>
           <ProtectedRoute
             path="/saved-news"
