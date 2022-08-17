@@ -90,6 +90,10 @@
     padding-bottom: 16px;
   }
 
+  .header_popup .navbar__option:last-child .navbar__link {
+   width: fit-content;
+  }
+
   .header_saved-news.header_popup .navbar {
     background-color: white;
   }
