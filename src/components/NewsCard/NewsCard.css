@@ -1,6 +1,6 @@
 .card {
   border-radius: 16px;
-  width: 30%;
+  width: 400px;
   height: 576px;
   position: relative;
   background-color: #ffffff;
@@ -95,8 +95,8 @@
   font-family: "Roboto Slab";
   font-style: normal;
   font-weight: 400;
-  font-size: 22px;
-  line-height: 109%;
+  font-size: 26px;
+  line-height: 115%;
   color: #1a1b22;
   margin: 0;
   overflow: hidden;
@@ -118,6 +118,7 @@
   line-height: 22px;
   color: #1a1b22;
   margin: 16px 0px 18px 0;
+  height: 110px;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 5;
@@ -151,6 +152,8 @@
 
   .card__title {
     -webkit-line-clamp: 3;
+    font-size: 22px;
+    line-height: 109%;
   }
 
   .card__keyword {
@@ -190,6 +193,7 @@
   }
 
   .card__description {
+    height: 88px;
     margin: 10px 0px 12px 0;
     -webkit-line-clamp: 4;
   }
@@ -237,6 +241,7 @@
   }
 
   .card__description {
+    height: 88px;
     margin: 10px 0px 12px 0;
     -webkit-line-clamp: 3;
   }

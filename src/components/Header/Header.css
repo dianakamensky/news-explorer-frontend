@@ -1,7 +1,6 @@
 .header {
   position: absolute;
   display: flex;
-  color: #ffffff;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   width: 85.5%;
   height: 80px;
@@ -9,6 +8,7 @@
   align-items: center;
   padding-left: 7.25%;
   padding-right: 7.25%;
+  color: #FFFFFF;
 }
 
 .header__popup-overlay {
@@ -29,6 +29,7 @@
   text-decoration: none;
   color: inherit;
 }
+
 
 .header__nav-btn {
   display: none;
