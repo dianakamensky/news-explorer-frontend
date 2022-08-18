@@ -48,6 +48,7 @@
 @media all and (min-width: 320px) and (max-width: 766px) {
   .footer {
     flex-direction: column-reverse;
+    margin-top: 0;
   }
 
   .footer__nav {

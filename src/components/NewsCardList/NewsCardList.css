@@ -18,7 +18,7 @@
 
 @media all and (min-width: 320px) and (max-width: 766px) {
   .newscardlist {
-    padding: 24px 5% 21px;
+    padding: 58px 5% 21px;
     row-gap: 10px;
     justify-content: center;
   }
