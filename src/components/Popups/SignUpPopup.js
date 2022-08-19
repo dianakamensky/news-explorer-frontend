@@ -50,6 +50,7 @@ function SignUpPopup({ isOpen, onClose, handleSubmit, openSignIn, message }) {
         onChange={handleEmailChange}
         required
       />
+      <p className="popup__input-error">Invalid email address</p>
       <label htmlFor="passwordsignup" className="popup__input-label">
         Password
       </label>
@@ -64,6 +65,7 @@ function SignUpPopup({ isOpen, onClose, handleSubmit, openSignIn, message }) {
         onChange={handlePasswordChange}
         required
       />
+      <p className="popup__input-error">Invalid password</p>
       <label htmlFor="username" className="popup__input-label">
         Username
       </label>

@@ -1,7 +1,6 @@
 import "./Navigation.css";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import React from "react";
-import Api from "../../utils/api";
 import { Link } from "react-router-dom";
 import logoutBlack from "../../images/logout-black.svg";
 import logoutWhite from "../../images/logout-white.svg";
