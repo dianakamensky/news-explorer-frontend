@@ -17,13 +17,16 @@ function Navigation({ isMainPage, openPopup, logout, toggleNavPopup }) {
   }
 
   return (
-    <nav className={`navbar ${isMainPage ? "navbar_main" : "navbar_saved"}`}>
+    <nav
+      className={`navbar ${isMainPage ? "navbar_main" : "navbar_page_saved"}`}
+    >
       <div
         className={`navbar__option ${
           isMainPage ? "navbar__option_current" : ""
         } 
          
-        `} onClick={toggleNavPopup}
+        `}
+        onClick={toggleNavPopup}
       >
         <Link className="navbar__link" to="/">
           Home
@@ -34,9 +37,10 @@ function Navigation({ isMainPage, openPopup, logout, toggleNavPopup }) {
         <div
           className={`navbar__option ${
             isMainPage ? "" : "navbar__option_current"
-          }`} onClick={toggleNavPopup}
+          }`}
+          onClick={toggleNavPopup}
         >
-          <Link className="navbar__link"  to="/saved-news">
+          <Link className="navbar__link" to="/saved-news">
             Saved articles
           </Link>
         </div>
@@ -47,8 +51,12 @@ function Navigation({ isMainPage, openPopup, logout, toggleNavPopup }) {
           className={`navbar__link ${username && "navbar__link_loggedIn"}`}
           onClick={handleClick}
         >{`${username || "Sign in"}`}</button>
-        {currentUser.email && !isMainPage && (<img className="navbar__logout" src={logoutBlack}></img>)}
-        {currentUser.email && isMainPage && (<img className="navbar__logout" src={logoutWhite}></img>)}
+        {currentUser.email && !isMainPage && (
+          <img className="navbar__logout" src={logoutBlack}></img>
+        )}
+        {currentUser.email && isMainPage && (
+          <img className="navbar__logout" src={logoutWhite}></img>
+        )}
       </div>
     </nav>
   );

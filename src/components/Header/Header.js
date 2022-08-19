@@ -15,10 +15,9 @@ function Header({ openPopup, logout, toggleOverlay }) {
   }
 
   return (
-    
     <header
       className={`header ${
-        location.pathname === "/saved-news" && "header_saved-news"
+        location.pathname === "/saved-news" && "header_page_saved-news"
       } ${navPopupOpen && "header_popup"}`}
     >
       <Link className="header__logo" to="/">
@@ -31,13 +30,12 @@ function Header({ openPopup, logout, toggleOverlay }) {
         navPopupOpen={navPopupOpen}
         toggleNavPopup={toggleNavPopup}
       ></Navigation>
-       <button
+      <button
         className={`header__nav-btn`}
         type="button"
         onClick={toggleNavPopup}
       ></button>
     </header>
-    
   );
 }
 

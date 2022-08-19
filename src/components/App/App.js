@@ -6,7 +6,6 @@ import {
   Route,
   Switch,
   withRouter,
-  useLocation,
   useHistory
 } from "react-router-dom";
 import Header from "../Header/Header";
@@ -20,7 +19,6 @@ import SignUpPopup from "../Popups/SignUpPopup";
 import InfoToolTip from "../Popups/InfoToolTip";
 
 function App({ props }) {
-  const location = useLocation();
   const history = useHistory();
 
   const [currentUser, setCurrentUser] = React.useState({});

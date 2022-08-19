@@ -4,7 +4,7 @@ import Image from "../../images/profile.svg";
 function About(props) {
   return (
     <section className="about">
-      <img className="about__image" src={Image}></img>
+      <img className="about__image" src={Image} alt="project author"></img>
       <div className="about__text">
         <h2 className="about__title">About the author</h2>
         <p className="about__paragraph">

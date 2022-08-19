@@ -16,6 +16,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "lint": "npx eslint .",
     "eject": "react-scripts eject",
     "deploy": "npm run build && scp -r ./build/* dianakamensky@NewsExplorer.students.nomoredomainssbs.ru:news-explorer-frontend"
   },

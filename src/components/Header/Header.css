@@ -8,14 +8,14 @@
   align-items: center;
   padding-left: 7.25%;
   padding-right: 7.25%;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .header__popup-overlay {
   display: none;
 }
 
-.header_saved-news {
+.header_page_saved-news {
   color: black;
   border-bottom: 1px solid #d1d2d6;
 }
@@ -29,7 +29,6 @@
   text-decoration: none;
   color: inherit;
 }
-
 
 .header__nav-btn {
   display: none;
@@ -71,11 +70,11 @@
     background-size: contain;
   }
 
-  .header_saved-news.header_popup {
+  .header_page_saved-news.header_popup {
     background-color: white;
   }
 
-  .header_saved-news .header__nav-btn {
+  .header_page_saved-news .header__nav-btn {
     background-image: url("../../images/menu-black.svg");
   }
 }
