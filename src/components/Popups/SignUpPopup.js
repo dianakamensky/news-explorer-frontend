@@ -33,7 +33,7 @@ function SignUpPopup({ isOpen, onClose, handleSubmit, openSignIn, message }) {
       submitText="Sign Up"
       onSubmit={onSubmit}
       onClose={onClose}
-      altOption="sign in"
+      altOption="Sign in"
       handleAlt={openSignIn}
     >
       <label htmlFor="emailsignup" className="popup__input-label">
