@@ -121,8 +121,9 @@
   height: 110px;
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+
 }
 
 .card__source {
@@ -134,7 +135,9 @@
   letter-spacing: 0.4px;
   text-transform: uppercase;
   color: #b6bcbf;
-  margin: 0 0 24px 0;
+  margin: 0;
+  position: absolute;
+  bottom: 24px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -199,7 +202,7 @@
   }
 
   .card__source {
-    margin: 0 0 16px 0;
+    bottom: 16px;
   }
 }
 
@@ -218,6 +221,7 @@
 
   .card__title {
     -webkit-line-clamp: 2;
+    font-size: 22px;
   }
 
   .card__btn {
@@ -243,11 +247,11 @@
   .card__description {
     height: 88px;
     margin: 10px 0px 12px 0;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 4;
   }
 
   .card__source {
-    margin: 0 0 16px 0;
+    bottom: 16px;
   }
 
   .card__image {

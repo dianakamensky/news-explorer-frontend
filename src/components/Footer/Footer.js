@@ -10,14 +10,14 @@ function Footer(props) {
         <a href="/" className="footer__nav-link">
           Home
         </a>
-        <a href="https://www.practicum100.org/" className="footer__nav-link">
+        <a href="https://www.practicum100.org/" className="footer__nav-link" target="_blank" rel="noopener noreferrer">
           Practicum by Yandex
         </a>
         <div className="footer__nav-icons">
-          <a href="https://github.com/" className="footer__nav-link">
+          <a href="https://github.com/" className="footer__nav-link" target="_blank" rel="noopener noreferrer">
             <img src={GitHub}></img>
           </a>
-          <a href="https://www.facebook.com/" className="footer__nav-link">
+          <a href="https://www.facebook.com/" className="footer__nav-link" target="_blank" rel="noopener noreferrer">
             <img src={Facebook}></img>
           </a>
         </div>
