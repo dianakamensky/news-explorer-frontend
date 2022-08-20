@@ -48,7 +48,7 @@ function NewsCard({ content, deleteArticle, saveArticle, bin }) {
       ></img>
       {bin && <p className="card__keyword">{content.keyword}</p>}
       <button type="button" className="card__btn" onClick={handleClick}>
-        <img className="card__btn-icon" src={icon()}></img>
+        <img className="card__btn-icon" src={icon()} alt={alt()}></img>
       </button>
       {!currentUser.email && (<p className="card__btn-message">Sign in to save articles</p>)}
       <div className="card__text">
