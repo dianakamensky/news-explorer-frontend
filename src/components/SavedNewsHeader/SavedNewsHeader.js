@@ -16,7 +16,7 @@ function SavedNewsHeader() {
   });
 
   const sortedKeywords = Object.keys(keywords).sort(
-    (a, b) => keywords[a] - keywords[b]
+    (a, b) => keywords[b] - keywords[a]
   );
 
   const keywordString =
