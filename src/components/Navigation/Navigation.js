@@ -51,10 +51,10 @@ function Navigation({ isMainPage, openPopup, logout, toggleNavPopup }) {
           onClick={handleClick}
         >{`${username || "Sign in"}`}</button>
         {currentUser.email && !isMainPage && (
-          <img className="navbar__logout" src={logoutBlack}></img>
+          <img className="navbar__logout" src={logoutBlack} alt="Logout"></img>
         )}
         {currentUser.email && isMainPage && (
-          <img className="navbar__logout" src={logoutWhite}></img>
+          <img className="navbar__logout" src={logoutWhite} alt="Logout"></img>
         )}
       </div>
     </nav>

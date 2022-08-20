@@ -107,14 +107,15 @@
     right: 0;
     left: 0;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: baseline;
   }
 
   .header_popup .navbar__option {
     display: flex;
     align-items: center;
     width: 90%;
-    height: min-content;
+    margin: 16px 0 22px 0;
+    height: 56px;
   }
 
   .header_popup .navbar__link {
@@ -126,8 +127,11 @@
   }
 
   .header_popup .navbar__option:last-child {
-    padding-top: 16px;
-    padding-bottom: 16px;
+    margin: 0 0 24px;
+  }
+
+  .header_popup .navbar__option:nth-child(2) {
+    margin-top: 0;
   }
 
   .header_popup .navbar__option:last-child .navbar__link {

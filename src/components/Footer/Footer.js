@@ -15,10 +15,10 @@ function Footer(props) {
         </a>
         <div className="footer__nav-icons">
           <a href="https://github.com/" className="footer__nav-link" target="_blank" rel="noopener noreferrer">
-            <img src={GitHub}></img>
+            <img src={GitHub} alt="Github"></img>
           </a>
           <a href="https://www.facebook.com/" className="footer__nav-link" target="_blank" rel="noopener noreferrer">
-            <img src={Facebook}></img>
+            <img src={Facebook} alt="Facebook"></img>
           </a>
         </div>
       </nav>

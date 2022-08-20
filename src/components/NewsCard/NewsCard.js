@@ -11,7 +11,7 @@ function NewsCard({ content, deleteArticle, saveArticle, bin }) {
   const date = new Date(content.date).toLocaleDateString(undefined, {weekday: undefined, month: 'long', day: 'numeric', year: 'numeric'});
   const currentUser = React.useContext(CurrentUserContext);
 
-  React.useEffect(updateSaved, [savedCards]);
+  React.useEffect(updateSaved, [savedCards, content.link]);
 
   const [saved, setSaved] = React.useState(null);
 
@@ -22,6 +22,11 @@ function NewsCard({ content, deleteArticle, saveArticle, bin }) {
   function icon() {
     if (bin) return Bin;
     return saved ? Saved : Save;
+  }
+
+  function alt() {
+    if (bin) return "Delete article";
+    return saved ? "Unsave article" : "Save article";
   }
 
   function handleClick(e) {
