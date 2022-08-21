@@ -14,7 +14,7 @@
 }
 
 .card__keyword {
-  font-family: "Roboto";
+  font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
@@ -42,6 +42,28 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.card__btn_icon_bin {
+  background-image: url("../../images/trash.svg");
+}
+
+.card__btn_icon_bin:hover {
+  background-image: url("../../images/trash-hover.svg");
+}
+
+.card__btn_icon_save {
+  background-image: url("../../images/save.svg");
+}
+
+.card__btn_icon_save:hover {
+  background-image: url("../../images/save-hover.svg");
+}
+
+.card__btn_icon_saved {
+  background-image: url("../../images/saved.svg");
 }
 
 .card__btn:hover {
@@ -51,7 +73,7 @@
 .card__btn-message {
   margin: 0;
   display: none;
-  font-family: "Roboto";
+  font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
@@ -59,7 +81,7 @@
   align-items: center;
   text-align: center;
   color: #000000;
-  padding: 11px 20px;
+  padding: 13px 20px;
   background-color: white;
   border-radius: 10px;
   position: absolute;
@@ -74,7 +96,7 @@
 .card__text {
   margin-left: 24px;
   margin-right: 24px;
-  font-family: "Roboto";
+  font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -92,7 +114,7 @@
 }
 
 .card__title {
-  font-family: "Roboto Slab";
+  font-family: "Roboto Slab", serif;
   font-style: normal;
   font-weight: 400;
   font-size: 26px;
@@ -111,7 +133,7 @@
 }
 
 .card__description {
-  font-family: "Roboto";
+  font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -123,7 +145,6 @@
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 5;
-
 }
 
 .card__source {

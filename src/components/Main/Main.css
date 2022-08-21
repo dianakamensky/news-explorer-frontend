@@ -23,7 +23,7 @@
 }
 
 .main__header {
-  font-family: "Roboto Slab";
+  font-family: "Roboto Slab", serif;
   font-style: normal;
   font-weight: 400;
   font-size: 60px;
@@ -33,7 +33,7 @@
 }
 
 .main__description {
-  font-family: "Roboto";
+  font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -43,17 +43,17 @@
 }
 
 .main__results-title {
-  font-family: "Roboto Slab";
+  font-family: "Roboto Slab", serif;
   font-style: normal;
   font-weight: 400;
   font-size: 40px;
   line-height: 46px;
   color: #1a1b22;
-  margin: 80px 0 2px 5%;
+  margin: 80px 0 2px 7.22%;
 }
 
 .main__no-results-title {
-  font-family: "Roboto Slab";
+  font-family: "Roboto Slab", serif;
   font-style: normal;
   font-weight: 400;
   font-size: 26px;
@@ -76,7 +76,7 @@
 }
 
 .main__results-message {
-  font-family: "Roboto";
+  font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -94,7 +94,7 @@
   text-align: center;
   background: white;
   color: black;
-  font-family: "Roboto";
+  font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
@@ -106,7 +106,7 @@
 
 .main__results-button:hover {
   cursor: pointer;
-  background: #E8E8E8;
+  background: #e8e8e8;
   opacity: 0.9;
 }
 
@@ -132,8 +132,7 @@
   .main__results-title {
     font-size: 30px;
     line-height: 34px;
-    margin-top: 40px;
-    margin-bottom: 0;
+    margin: 40px 0 0 5.2%;
   }
 
   .main__results-button {

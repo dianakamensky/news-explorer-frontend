@@ -13,7 +13,7 @@
 
 .about__title {
   margin-top: 131px;
-  font-family: "Roboto Slab";
+  font-family: "Roboto Slab", serif;
   font-style: normal;
   font-weight: 400;
   font-size: 40px;
@@ -26,7 +26,7 @@
 }
 
 .about__paragraph {
-  font-family: "Roboto";
+  font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;

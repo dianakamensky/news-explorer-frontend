@@ -17,11 +17,11 @@ function Navigation({ isMainPage, openPopup, logout, toggleNavPopup }) {
 
   return (
     <nav
-      className={`navbar ${isMainPage ? "navbar_main" : "navbar_page_saved"}`}
+      className={`navbar ${isMainPage ? "navbar_page_main" : "navbar_page_saved"}`}
     >
       <div
         className={`navbar__option ${
-          isMainPage ? "navbar__option_current" : ""
+          isMainPage ? "navbar__option_decoration_underline" : ""
         } 
          
         `}
@@ -35,7 +35,7 @@ function Navigation({ isMainPage, openPopup, logout, toggleNavPopup }) {
       {username && (
         <div
           className={`navbar__option ${
-            isMainPage ? "" : "navbar__option_current"
+            isMainPage ? "" : "navbar__option_decoration_underline"
           }`}
           onClick={toggleNavPopup}
         >
@@ -47,7 +47,7 @@ function Navigation({ isMainPage, openPopup, logout, toggleNavPopup }) {
 
       <div className="navbar__option" onClick={toggleNavPopup}>
         <button
-          className={`navbar__link ${username && "navbar__link_loggedIn"}`}
+          className="navbar__link"
           onClick={handleClick}
         >{`${username || "Sign in"}`}</button>
         {currentUser.email && !isMainPage && (

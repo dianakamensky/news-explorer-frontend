@@ -3,7 +3,7 @@
   background-color: #ffffff;
   border-radius: 100px;
   height: 63px;
-  font-family: "Roboto";
+  font-family: "Roboto", sans-serif;
   font-style: normal;
   justify-content: space-between;
 }

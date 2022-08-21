@@ -2,9 +2,6 @@ import "./NewsCard.css";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { SavedCardsContext } from "../../contexts/SavedCardsContext";
 import React from "react";
-import Bin from "../../images/trash.svg";
-import Saved from "../../images/saved.svg";
-import Save from "../../images/save.svg";
 
 function NewsCard({ content, deleteArticle, saveArticle, bin }) {
   const savedCards = React.useContext(SavedCardsContext);
@@ -20,13 +17,8 @@ function NewsCard({ content, deleteArticle, saveArticle, bin }) {
   }
 
   function icon() {
-    if (bin) return Bin;
-    return saved ? Saved : Save;
-  }
-
-  function alt() {
-    if (bin) return "Delete article";
-    return saved ? "Unsave article" : "Save article";
+    if (bin) return "card__btn_icon_bin";
+    return saved ? "card__btn_icon_saved" : "card__btn_icon_save";
   }
 
   function handleClick(e) {
@@ -47,10 +39,10 @@ function NewsCard({ content, deleteArticle, saveArticle, bin }) {
         alt={content.title}
       ></img>
       {bin && <p className="card__keyword">{content.keyword}</p>}
-      <button type="button" className="card__btn" onClick={handleClick}>
-        <img className="card__btn-icon" src={icon()} alt={alt()}></img>
+      <button type="button" className={`card__btn ${icon()}`} onClick={handleClick}>
       </button>
       {!currentUser.email && (<p className="card__btn-message">Sign in to save articles</p>)}
+      {bin && (<p className="card__btn-message">Remove from saved</p>)}
       <div className="card__text">
         <p className="card__date">{date}</p>
         <h3 className="card__title"><a href={content.link}>{content.title}</a></h3>

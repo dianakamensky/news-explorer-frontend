@@ -16,6 +16,7 @@ function PopupWithForm({
 
   const [isValid, setIsValid] = React.useState(false);
 
+   // eslint-disable-next-line react-hooks/exhaustive-deps
   React.useEffect(() => {
     setIsValid(formRef.current.checkValidity());
   });

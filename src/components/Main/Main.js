@@ -104,7 +104,7 @@ function Main(props) {
           ) : (
             !preloader && (
               <div className="main__no-results">
-                <img className="main__no-results-image" src={noResults} alt=""></img>
+                <img className="main__no-results-image" src={noResults} alt="Sad face"></img>
                 <p className="main__no-results-title">Nothing found</p>
                 <p className="main__results-message">
                   Sorry, but nothing matched your search terms.

@@ -19,7 +19,7 @@
 }
 
 .navbar__link {
-  font-family: "Roboto";
+  font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
@@ -50,12 +50,12 @@
   color: black;
 }
 
-.navbar__option_current {
+.navbar__option_decoration_underline {
   border-bottom: 3px solid;
   color: white;
 }
 
-.navbar__option_current .navbar__link {
+.navbar__option_decoration_underline .navbar__link {
   color: white;
 }
 
@@ -122,7 +122,7 @@
     width: 100%;
   }
 
-  .header_popup .navbar__option_current {
+  .header_popup .navbar__option_decoration_underline {
     border-bottom: none;
   }
 

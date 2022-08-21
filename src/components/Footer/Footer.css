@@ -1,12 +1,12 @@
 .footer {
   display: flex;
   justify-content: space-between;
-  width: 90%;
-  margin: 32px 5% 26px 5%;
+  width: 85.5%;
+  margin: 32px 7.22% 26px;
 }
 
 .footer__copyright {
-  font-family: "Roboto";
+  font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -32,7 +32,7 @@
 .footer__nav-link {
   color: black;
   text-decoration: none;
-  font-family: "Roboto";
+  font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
