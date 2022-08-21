@@ -1,7 +1,7 @@
 function InfoToolTip({ isOpen, onClose, openSignIn }) {
   return (
     <div className={`popup ${isOpen ? "popup_open" : ""}`}>
-      <div className="popup__message  popup__message_info-tooltip">
+      <div className="popup__message  popup__message_type_info-tooltip">
         <button
           type="button"
           className="popup__close-btn"
