@@ -100,6 +100,7 @@ function Main(props) {
               deleteArticle={props.deleteArticle}
               saveArticle={props.saveArticle}
               bin={false}
+              openPopup={props.openPopup}
             ></NewsCardList>
           ) : (
             !preloader && (

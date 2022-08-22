@@ -3,7 +3,7 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { SavedCardsContext } from "../../contexts/SavedCardsContext";
 import React from "react";
 
-function NewsCard({ content, deleteArticle, saveArticle, bin }) {
+function NewsCard({ content, deleteArticle, saveArticle, bin, openPopup }) {
   const savedCards = React.useContext(SavedCardsContext);
   const date = new Date(content.date).toLocaleDateString(undefined, {weekday: undefined, month: 'long', day: 'numeric', year: 'numeric'});
   const currentUser = React.useContext(CurrentUserContext);
@@ -22,7 +22,10 @@ function NewsCard({ content, deleteArticle, saveArticle, bin }) {
   }
 
   function handleClick(e) {
-
+    if (!currentUser.email) {
+      openPopup(true);
+      return;
+    }
     if (bin || saved) {
       deleteArticle(saved._id);
     }

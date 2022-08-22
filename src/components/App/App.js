@@ -132,6 +132,7 @@ function App({ props }) {
             <Main
               deleteArticle={deleteArticle}
               saveArticle={saveArticle}
+              openPopup={setIsSignUpPopupOpen}
             ></Main>
           </Route>
           <ProtectedRoute
