@@ -1,5 +1,5 @@
 import "./About.css";
-import Image from "../../images/profile.svg";
+import Image from "../../images/profile.jpg";
 
 function About(props) {
   return (
