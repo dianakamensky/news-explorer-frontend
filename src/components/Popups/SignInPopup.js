@@ -41,6 +41,7 @@ function SignInPopup({ isOpen, onClose, handleSubmit, openSignUp }) {
         minLength="2"
         maxLength="40"
         onChange={handleEmailChange}
+        value={email}
         required
       />
       <p className="popup__input-error">Invalid email address</p>
@@ -56,6 +57,7 @@ function SignInPopup({ isOpen, onClose, handleSubmit, openSignUp }) {
         minLength="2"
         maxLength="40"
         onChange={handlePasswordChange}
+        value={password}
         required
       />
     </PopupWithForm>

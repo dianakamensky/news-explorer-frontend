@@ -48,6 +48,7 @@ function SignUpPopup({ isOpen, onClose, handleSubmit, openSignIn, message }) {
         minLength="2"
         maxLength="40"
         onChange={handleEmailChange}
+        value={email}
         required
       />
       <p className="popup__input-error">Invalid email address</p>
@@ -63,6 +64,7 @@ function SignUpPopup({ isOpen, onClose, handleSubmit, openSignIn, message }) {
         minLength="2"
         maxLength="40"
         onChange={handlePasswordChange}
+        value={password}
         required
       />
       <p className="popup__input-error">Invalid password</p>
@@ -78,6 +80,7 @@ function SignUpPopup({ isOpen, onClose, handleSubmit, openSignIn, message }) {
         minLength="2"
         maxLength="40"
         onChange={handleUserNameChange}
+        value={username}
         required
       />
       {message && <p className="popup__submit-error">{message}</p>}
