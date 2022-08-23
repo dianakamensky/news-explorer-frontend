@@ -1,0 +1,27 @@
+.newscardlist {
+  display: flex;
+  column-gap: 16px;
+  row-gap: 16px;
+  flex-wrap: wrap;
+  padding: 62px 0;
+  width: 90%;
+  margin: 0 7.22%;
+}
+
+@media all and (min-width: 767px) and (max-width: 1000px) {
+  .newscardlist {
+    padding: 32px 5.2%;
+    row-gap: 8px;
+    column-gap: 8px;
+    margin: 0;
+  }
+}
+
+@media all and (min-width: 320px) and (max-width: 766px) {
+  .newscardlist {
+    padding: 58px 5% 21px;
+    row-gap: 10px;
+    justify-content: center;
+    margin: 0;
+  }
+}
